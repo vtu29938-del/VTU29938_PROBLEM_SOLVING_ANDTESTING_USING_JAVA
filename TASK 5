@@ -1,9 +1,11 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class MaximumElement {
+public class KthSmallest {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        // Input the size of the array
+
+        // Input array size
         System.out.print("Enter the number of elements: ");
         int n = sc.nextInt();
 
@@ -15,18 +17,20 @@ public class MaximumElement {
             arr[i] = sc.nextInt();
         }
 
-        // Assume the first element is the maximum
-        int max = arr[0];
+        // Input value of K
+        System.out.print("Enter the value of K: ");
+        int k = sc.nextInt();
 
-        // Find the maximum element
-        for (int i = 1; i < n; i++) {
-            if (arr[i] > max) {
-                max = arr[i];
-            }
+        // Check if K is valid
+        if (k <= 0 || k > n) {
+            System.out.println("Invalid value of K");
+        } else {
+            // Sort the array
+            Arrays.sort(arr);
+
+            // Print Kth smallest element
+            System.out.println("The " + k + "th smallest element is: " + arr[k - 1]);
         }
-
-        // Display the maximum element
-        System.out.println("Maximum element = " + max);
 
         sc.close();
     }
