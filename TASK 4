@@ -1,34 +1,33 @@
 import java.util.Scanner;
 
-public class BinarySearch {
+public class MaximumElement {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] arr = {10, 20, 30, 40, 50, 60, 70};
-        System.out.print("Enter the element to search: ");
-        int key = sc.nextInt();
 
-        int low = 0;
-        int high = arr.length - 1;
-        int found = -1;
+        // Input the size of the array
+        System.out.print("Enter the number of elements: ");
+        int n = sc.nextInt();
 
-        while (low <= high) {
-            int mid = (low + high) / 2;
+        int[] arr = new int[n];
 
-            if (arr[mid] == key) {
-                found = mid;
-                break;
-            } else if (arr[mid] < key) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
+        // Input array elements
+        System.out.println("Enter the array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        // Assume the first element is the maximum
+        int max = arr[0];
+
+        // Find the maximum element
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
             }
         }
 
-        if (found != -1) {
-            System.out.println("Element found at index: " + found);
-        } else {
-            System.out.println("Element not found.");
-        }
+        // Display the maximum element
+        System.out.println("Maximum element = " + max);
 
         sc.close();
     }
